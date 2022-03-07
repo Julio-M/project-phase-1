@@ -10,23 +10,30 @@
   <!--BOOTSTRAP END-->
   <!--ExTERNAL JS START-->
   <script defer src="https://www.cryptohopper.com/widgets/js/script"></script>
-  <!--INTERNAL JS END-->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <!--EXTERNAL JS END-->
   <!--CUSTOM CSS START-->
   <link rel="stylesheet" href="./index.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/featured.css">
+  <link rel="stylesheet" href="./css/chart.css">
   <!--CUSTOM CSS END-->
   <!--CUSTOM JS START-->
   <script defer src="./src/index.js"></script>
   <script defer src="./src/include.js"></script>
+  <script defer src="./src/chart.js"></script>
   <!--CUSTOM JS END-->
   <title>Document</title>
 </head>
 <body>
   <div class='container-fluid'> 
     <div id='topbar' include-nav="./components/navbar.html" ></div>
-    <div id='featured'class='card-group' include-featured='./components/featured.html'>
-    </div>
+    <div id='featured'class='card-group' include-featured='./components/featured.html'></div>
+    <div class='chart'>
+      <h3 class="chartTitle">Hello</h3>
+      <img src="" alt= "Hello" class="logo"/>
+      <canvas id="myChart" height="350">
+      </canvas></div>
   </div>  
 </body>
 </html>

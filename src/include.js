@@ -48,20 +48,21 @@ const navFile = nav.getAttribute('include-nav')
 const feat = document.querySelector('#featured')
 const featFile = feat.getAttribute('include-featured')
 
+//Chart
+// const chart = document.querySelector('#chart')
+// const chartFile = chart.getAttribute('include-chart')
+// console.log(chartFile)
 
 
-const includeNavHtml = (select,attr) => {
+const includeHtml = (select,attr) => {
   if(attr){
     const xhttp = new XMLHttpRequest()
-    console.log(xhttp)
     xhttp.open('GET', attr, true)
     xhttp.onreadystatechange = (e)=>{
-      console.log(xhttp)
       if(xhttp.readyState === XMLHttpRequest.DONE) {
         var status = xhttp.status;
         if (status === 0 || (status >= 200 && status < 400)) {
           // The request has been completed successfully
-          console.log(xhttp.responseText);
           select.innerHTML = xhttp.responseText
           //           includeHtml();
         } else {
@@ -70,11 +71,11 @@ const includeNavHtml = (select,attr) => {
       }
     }
     xhttp.send()
-    return
   }
-  console.log(select,attr)
 }
 
-includeNavHtml(nav,navFile)
+includeHtml(nav,navFile)
 
-includeNavHtml(feat,featFile)
+includeHtml(feat,featFile)
+
+

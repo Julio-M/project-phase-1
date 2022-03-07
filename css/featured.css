@@ -8,7 +8,7 @@ div.card {
 
 div.card-body#feat-card {
   flex: 1;
-  margin: 0px 20px;
+  margin: 10px 20px 20px;
   padding: 30px;
   border-radius: 10px;
   cursor: pointer;

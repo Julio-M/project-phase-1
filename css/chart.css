@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+div.chart {
+  border-radius: 10px;
+  border-style: solid;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  display: flex; /*added*/
+  flex-direction: column; /*added*/
+  margin-left: 20px;
+  margin-right: 20px;
+  position: relative;
+  vertical-align: top;
+}
+
+#myChart {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px 20px;
+}
+
+.chartTitle {
+  font-family: "Roboto", sans-serif;
+}
+
+.logo {
+  font-size: 14px;
+  margin-left: 5px;
+}
