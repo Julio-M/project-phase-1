@@ -40,13 +40,21 @@
 // };
 // xhr.send();
 
-const includeNavHtml = () => {
-  const nav = document.querySelector('#topbar')
-  const navFile = nav.getAttribute('include-nav')
-  if(navFile){
+//Navbar
+const nav = document.querySelector('#topbar')
+const navFile = nav.getAttribute('include-nav')
+
+//Fetured
+const feat = document.querySelector('#featured')
+const featFile = feat.getAttribute('include-featured')
+
+
+
+const includeNavHtml = (select,attr) => {
+  if(attr){
     const xhttp = new XMLHttpRequest()
     console.log(xhttp)
-    xhttp.open('GET', navFile, true)
+    xhttp.open('GET', attr, true)
     xhttp.onreadystatechange = (e)=>{
       console.log(xhttp)
       if(xhttp.readyState === XMLHttpRequest.DONE) {
@@ -54,7 +62,7 @@ const includeNavHtml = () => {
         if (status === 0 || (status >= 200 && status < 400)) {
           // The request has been completed successfully
           console.log(xhttp.responseText);
-          nav.innerHTML = xhttp.responseText
+          select.innerHTML = xhttp.responseText
           //           includeHtml();
         } else {
           console.log("It didn't work")
@@ -64,6 +72,9 @@ const includeNavHtml = () => {
     xhttp.send()
     return
   }
-  console.log(navFile)
+  console.log(select,attr)
 }
-includeNavHtml()
+
+includeNavHtml(nav,navFile)
+
+includeNavHtml(feat,featFile)

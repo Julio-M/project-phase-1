@@ -1,0 +1,25 @@
+div.card {
+  border: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px 20px;
+}
+
+div.card-body#feat-card {
+  flex: 1;
+  margin: 0px 20px;
+  padding: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  border-style: solid;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+#news {
+  font-size: 12px;
+}
+
+.pull-right {
+  display: none;
+}
