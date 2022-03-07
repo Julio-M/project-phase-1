@@ -48,10 +48,18 @@ const navFile = nav.getAttribute('include-nav')
 const feat = document.querySelector('#featured')
 const featFile = feat.getAttribute('include-featured')
 
+
 //Chart
 // const chart = document.querySelector('#chart')
 // const chartFile = chart.getAttribute('include-chart')
 // console.log(chartFile)
+
+//Tables
+const tab = document.querySelector('#tabledata')
+const tabFile = tab.getAttribute('include-table')
+
+console.log(tabFile)
+
 
 
 const includeHtml = (select,attr) => {
@@ -78,4 +86,8 @@ includeHtml(nav,navFile)
 
 includeHtml(feat,featFile)
 
+
+includeNavHtml(feat,featFile)
+
+includeNavHtml(tab,tabFile)
 
