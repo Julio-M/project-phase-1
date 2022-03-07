@@ -8,7 +8,7 @@ const getData = async () =>{
   const res = await req.json()
   console.log(res)
   const keys = res.forEach((data)=>{
-    console.log(data)
+    data
   })
   } catch(error)
   {

@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+@media screen and (max-width: 850px) {
+}
+
+#title {
+  font-family: "Anton", sans-serif;
+  color: rgba(158, 32, 32, 0.52);
+}
