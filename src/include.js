@@ -87,7 +87,7 @@ includeHtml(nav,navFile)
 includeHtml(feat,featFile)
 
 
-includeNavHtml(feat,featFile)
+includeHtml(feat,featFile)
 
-includeNavHtml(tab,tabFile)
+includeHtml(tab,tabFile)
 

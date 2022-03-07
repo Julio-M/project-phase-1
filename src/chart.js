@@ -69,8 +69,6 @@ async function fetchData(url){
 
 fetchData(defaultUrl)
 
-console.log('THE X AXIS VLAUES', allData.xValues)
-console.log('THE Y AXIS VLAUES', allData.yValues)
 
 
 
