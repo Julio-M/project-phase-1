@@ -6,7 +6,6 @@ const getData = async () =>{
   try{
   let req = await fetch(coinUrl)
   const res = await req.json()
-  console.log(res)
   const keys = res.forEach((data)=>{
     data
   })
