@@ -30,10 +30,18 @@
     <div id='topbar' include-nav="./components/navbar.html" ></div>
     <div id='featured'class='card-group' include-featured='./components/featured.html'></div>
     <div class='chart'>
-      <h3 class="chartTitle">Hello</h3>
+      <div class='topChart'>
+      <h3 class="chartTitle">Hello
       <img src="" alt= "Hello" class="logo"/>
+      </h3>
+      <div id='filters' class="btn-group text-right" role="group">
+        <button id='hour' type="button" class="btn btn-secondary">Hour</button>
+        <button id='day' type="button" class="btn btn-secondary">Days</button>
+      </div>
+    </div>
       <canvas id="myChart" height="350">
-      </canvas></div>
+      </canvas>
+    </div>
   </div>  
 </body>
 </html>

@@ -8,14 +8,18 @@ div.chart {
   flex-direction: column; /*added*/
   margin-left: 20px;
   margin-right: 20px;
-  position: relative;
-  vertical-align: top;
+}
+
+div.topChart {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px 20px;
 }
 
 #myChart {
   position: relative;
   display: flex;
-  justify-content: space-between;
   margin: 10px 0px 20px;
 }
 
@@ -26,4 +30,22 @@ div.chart {
 .logo {
   font-size: 14px;
   margin-left: 5px;
+}
+
+#filters {
+  width: 15%;
+  height: 5vh;
+}
+
+#filters button {
+  font-family: "Roboto", sans-serif;
+  border: 1px solid rgba(255, 0, 0, 0.08);
+  font-size: 12px;
+  color: black;
+  background-color: transparent;
+}
+
+#filters button:hover {
+  font-size: 14px;
+  box-shadow: 0 5px 20px rgba(245, 179, 193, 0.5);
 }
