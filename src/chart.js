@@ -7,10 +7,9 @@ const hourButton = document.querySelector('#hour')
 const dayButton = document.querySelector('#day')
 console.log(dayButton)
 
-const defaultUrl = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=0.041&interval=1m`
+const defaultUrl = "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=0.041&interval=1m"
 
 hourButton.addEventListener('click', (e)=>{
-  e.preventDefault()
   const hourData = 0.041
   const hourUrl = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${hourData}&interval=1m`
   fetchData(hourUrl)
@@ -23,12 +22,6 @@ dayButton.addEventListener('click', (e) => {
   fetchData(dayUrl)
   console.log(dayUrl)
 })
-
-
-
-
-// var xValues = [50,60,70,80,90,100,110,120,130,140,150];
-// var yValues = [7,8,8,9,9,9,10,11,14,14,15];
 
 
 async function fetchData(url){
@@ -73,6 +66,8 @@ async function fetchData(url){
     }
   });
 }
+
+fetchData(defaultUrl)
 
 console.log('THE X AXIS VLAUES', allData.xValues)
 console.log('THE Y AXIS VLAUES', allData.yValues)
