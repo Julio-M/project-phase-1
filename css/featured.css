@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+Pro:wght@200&display=swap');
+
 div.card {
   border: 0px;
   width: 100%;
@@ -22,4 +24,12 @@ div.card-body#feat-card {
 
 .pull-right {
   display: none;
+}
+
+h5 {
+  font-family: 'Playfair Display', serif;
+}
+
+.card {
+  font-family: 'Source Sans Pro', sans-serif;
 }
