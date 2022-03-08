@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+Pro:wght@200&display=swap');
 
 div.chart {
   border-radius: 10px;
@@ -24,7 +25,9 @@ div.topChart {
 }
 
 .chartTitle {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
 h3 img.logo {

@@ -5,6 +5,8 @@ const headers = {
 
 const hourButton = document.querySelector('#hour')
 const dayButton = document.querySelector('#day')
+const grabChart = document.querySelector('#myChart')
+const fullChart = document.querySelector('.chart')
 const divChart = document.querySelector('.chart')
 console.log(divChart)
 
@@ -17,6 +19,36 @@ const recreateChart = () => {
   grabChart.remove()
   const canvas = document.createElement('canvas')
   canvas.id = 'myChart'
+  canvas.height = '350'
+  fullChart.append(canvas)
+}
+
+function hrButton(coin) {
+  newCoin = coin
+  hourButton.addEventListener('click', (e)=>{
+    if (newCoin) {
+      recreateChart()
+      const hourData = 0.041
+      const hourUrl = `https://api.coingecko.com/api/v3/coins/${newCoin}/market_chart?vs_currency=usd&days=${hourData}&interval=1m`
+      
+      fetchData(hourUrl)
+
+    }
+  })
+}
+
+function dyButton(coin) {
+  newCoin = coin
+  dayButton.addEventListener('click', (e) => {
+    if (newCoin) {
+      recreateChart()
+      const dayData = 1
+      const dayUrl = `https://api.coingecko.com/api/v3/coins/${newCoin}/market_chart?vs_currency=usd&days=${dayData}&interval=1m`
+      
+      fetchData(dayUrl)
+    }
+  }) 
+}
   canvas.height='350'
   divChart.append(canvas)
 }
@@ -70,9 +102,12 @@ async function fetchData(url){
   const coinData = await res.json()
   const prices = coinData.prices
   let allData = {xValues:[],yValues:[]}
+  
+
+  
   prices.forEach((data)=>{
     //console.log(typeof data[0])
-    //console.log(data[0])
+    
     allData.xValues.push(new Date(data[0]).toDateString())
     allData.yValues.push(data[1].toFixed(2))
     //console.log(typeof xValues)
@@ -109,6 +144,4 @@ async function fetchData(url){
 }
 
 fetchData(defaultUrl)
-
-
 

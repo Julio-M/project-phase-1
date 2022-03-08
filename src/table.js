@@ -14,13 +14,18 @@ totalData().then(data => {
     data.forEach(mcapData => {
         let tdName = document.createElement('td')
         let tr = document.createElement('tr')
-        let th = document.createElement('th')
+        
         let tdPrice = document.createElement('td')
         let tdDiff = document.createElement('td')
         let tdVol = document.createElement('td')
         let tdMcap = document.createElement('td')
         let img = document.createElement('img')
         let button = document.createElement('button')
+
+
+        tr.id = mcapData.id
+        tr.className = 'coin'
+        tdName.className = 'chartname'
 
         button.className='favoriteBtn btn btn-outline-info'
         th.scope='row'
@@ -32,10 +37,17 @@ totalData().then(data => {
         tr.id = mcapData.id
         tr.className ='coin'
         tdName.className='chartname'
+
        
         document.querySelector('.tableinfo').appendChild(tr)
         tdName.textContent = mcapData.name
         img.src = mcapData.image
+
+        img.setAttribute('style', 'width:20px; margin-left:15px')
+        img.className = 'coinlogo'
+        tdName.appendChild(img)
+        tr.appendChild(tdName)
+
         img.className='coinlogo'
         img.style.width = '20px'
         tdName.appendChild(img)
@@ -70,6 +82,23 @@ totalData().then(data => {
         tr.appendChild(tdMcap)   
         
     })
+    const tableBody = document.querySelectorAll('.coin')
+    const tdName = document.querySelector('.chartname')
+    tableBody.forEach(coin => {
+        console.log(coin)
+        coin.addEventListener('click', e => {
+            let chartTitle = document.querySelector('.chartTitle')
+            const img = document.createElement('img')
+            recreateChart() // calling from chart.js
+            fetchData(`https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=usd&days=0.041&interval=1m`)
+            hrButton(coin.id)
+            dyButton(coin.id)
+            chartTitle.textContent = coin.querySelector('.chartname').textContent
+            img.src = coin.querySelector('.coinlogo').src
+            img.setAttribute('style', 'margin-left:15px; width:40px')
+            chartTitle.appendChild(img)
+        })       
+    })   
     //Link table to Chart START//
     const tableBody = document.querySelectorAll('.coin')
     tableBody.forEach((coin)=>{
