@@ -58,6 +58,9 @@ const featFile = feat.getAttribute('include-featured')
 const tab = document.querySelector('#tabledata')
 const tabFile = tab.getAttribute('include-table')
 
+const foot = document.querySelector('#footer')
+const footFile = foot.getAttribute('include-footer')
+
 console.log(tabFile)
 
 
@@ -90,4 +93,6 @@ includeHtml(feat,featFile)
 includeHtml(feat,featFile)
 
 includeHtml(tab,tabFile)
+
+includeHtml(foot,footFile)
 
