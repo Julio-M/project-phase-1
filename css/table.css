@@ -1,10 +1,31 @@
 tbody {
-    display:block;
-    max-height:500px;
-    overflow-y:auto;
+  display: block;
+  max-height: 500px;
+  overflow-y: auto;
 }
-thead, tbody tr {
-    display:table;
-    width:100%;
-    table-layout:fixed;
+thead,
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+#tabledata {
+  border-radius: 10px;
+  border-style: solid;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  display: flex; /*added*/
+  flex-direction: column; /*added*/
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+tr.coin td {
+  border-style: none;
+}
+
+tr.coin:hover {
+  background-color: rgb(240, 235, 235);
+  cursor: pointer;
 }
