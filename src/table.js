@@ -6,7 +6,6 @@ const totalData = async() => {
     return res
 }
 
-const tableBody = document.querySelector('.tableinfo')
 
 totalData().then(data => {
    
@@ -22,6 +21,7 @@ totalData().then(data => {
 
         th.textContent = mcapData['market_cap_rank']
         tr.id = mcapData.id
+        tr.className ='coin'
        
         document.querySelector('.tableinfo').appendChild(tr)
         tdName.textContent = mcapData.name
@@ -56,11 +56,17 @@ totalData().then(data => {
             style: 'decimal',
         }).format(tdMcap.textContent)
         tdMcap.textContent = tdMkcap
-        tr.appendChild(tdMcap)
-        
+        tr.appendChild(tdMcap)        
     })
+    //Link table to Chart START//
+    const tableBody = document.querySelectorAll('.coin')
+    tableBody.forEach((coin)=>{
+       coin.addEventListener('click',(e)=>
+       {
+        console.log('clicked')
+        recreateChart() // Calling this function from chart.js 
+        fetchData('https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=0.041&interval=1m')
+        })
+    })
+     //Link table to Chart END//
 })
-
-// tableBody.addEventListener('click', e => {
-//     console.log(e.target)
-// })

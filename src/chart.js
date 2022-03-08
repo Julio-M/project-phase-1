@@ -5,11 +5,24 @@ const headers = {
 
 const hourButton = document.querySelector('#hour')
 const dayButton = document.querySelector('#day')
-console.log(dayButton)
+const divChart = document.querySelector('.chart')
+console.log(divChart)
 
-const defaultUrl = "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=0.041&interval=1m"
+const defaultUrl = "https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=0.041&interval=1m"
+
+const recreateChart = () => {
+  const grabChart = document.querySelector('#myChart')
+  const fromChart = document.querySelector('.chartjs-size-monitor')
+  fromChart.remove()
+  grabChart.remove()
+  const canvas = document.createElement('canvas')
+  canvas.id = 'myChart'
+  canvas.height='350'
+  divChart.append(canvas)
+}
 
 hourButton.addEventListener('click', (e)=>{
+  recreateChart()
   const hourData = 0.041
   const hourUrl = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${hourData}&interval=1m`
   fetchData(hourUrl)
@@ -17,6 +30,7 @@ hourButton.addEventListener('click', (e)=>{
 })
 
 dayButton.addEventListener('click', (e) => {
+  recreateChart()
   const dayData = 1
   const dayUrl = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${dayData}&interval=1m`
   fetchData(dayUrl)
@@ -36,7 +50,7 @@ async function fetchData(url){
     allData.yValues.push(data[1].toFixed(2))
     //console.log(typeof xValues)
   })
-  new Chart("myChart", {
+  new Chart('myChart', {
     type: "line",
     data: {
       labels: allData.xValues,
@@ -70,8 +84,4 @@ async function fetchData(url){
 fetchData(defaultUrl)
 
 
-
-
-const myChart = document.querySelector('#myChart')
-console.log('My chart', myChart)
 
