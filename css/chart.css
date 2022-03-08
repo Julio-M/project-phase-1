@@ -30,9 +30,13 @@ div.topChart {
   margin-top: 20px;
 }
 
-.logo {
+h3 img.logo {
   width: 40px;
-  margin-left: 15px;
+  margin-left: 5px;
+}
+
+.coinlogo {
+  margin-left: 5px;
 }
 
 #filters {

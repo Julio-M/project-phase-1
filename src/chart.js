@@ -7,9 +7,10 @@ const hourButton = document.querySelector('#hour')
 const dayButton = document.querySelector('#day')
 const grabChart = document.querySelector('#myChart')
 const fullChart = document.querySelector('.chart')
+const divChart = document.querySelector('.chart')
+console.log(divChart)
 
-
-const defaultUrl = "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=0.041&interval=1m"
+const defaultUrl = "https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=0.041&interval=1m"
 
 const recreateChart = () => {
   const grabChart = document.querySelector('#myChart')
@@ -48,6 +49,52 @@ function dyButton(coin) {
     }
   }) 
 }
+  canvas.height='350'
+  divChart.append(canvas)
+}
+
+const hourData = (coin) => {
+    newCoin = coin
+    hourButton.addEventListener('click', (e)=>{
+    if (newCoin){
+      recreateChart()
+      const hourData = 0.041
+      const hourUrl = `https://api.coingecko.com/api/v3/coins/${newCoin}/market_chart?vs_currency=usd&days=${hourData}&interval=1m`
+      fetchData(hourUrl)
+      console.log('From the hour f',newCoin)
+    }
+  })  
+}
+
+const dayData = (coin) => {
+  newCoin = coin
+  dayButton.addEventListener('click', (e) => {
+    if (newCoin){
+      recreateChart()
+      const dayData = 1
+      const dayUrl = `https://api.coingecko.com/api/v3/coins/${newCoin}/market_chart?vs_currency=usd&days=${dayData}&interval=1m`
+      fetchData(dayUrl)
+      console.log(dayUrl)
+      console.log('From the day f',newCoin)
+    }
+  })
+}
+
+// hourButton.addEventListener('click', (e)=>{
+//   recreateChart()
+//   const hourData = 0.041
+//   const hourUrl = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${hourData}&interval=1m`
+//   fetchData(hourUrl)
+//   console.log(hourUrl)
+// })
+
+// dayButton.addEventListener('click', (e) => {
+//   recreateChart()
+//   const dayData = 1
+//   const dayUrl = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${dayData}&interval=1m`
+//   fetchData(dayUrl)
+//   console.log(dayUrl)
+// })
 
 
 async function fetchData(url){
@@ -65,7 +112,7 @@ async function fetchData(url){
     allData.yValues.push(data[1].toFixed(2))
     //console.log(typeof xValues)
   })
-  new Chart("myChart", {
+  new Chart('myChart', {
     type: "line",
     data: {
       labels: allData.xValues,
@@ -97,10 +144,4 @@ async function fetchData(url){
 }
 
 fetchData(defaultUrl)
-
-
-
-
-
-
 

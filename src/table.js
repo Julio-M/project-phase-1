@@ -6,7 +6,8 @@ const totalData = async() => {
     return res
 }
 
-const tableBody = document.querySelector('.tableinfo')
+const charTitle = document.querySelector('.chartTitle')
+const logo = document.querySelector('.logo')
 
 totalData().then(data => {
    
@@ -19,19 +20,38 @@ totalData().then(data => {
         let tdVol = document.createElement('td')
         let tdMcap = document.createElement('td')
         let img = document.createElement('img')
+        let button = document.createElement('button')
 
-        
+
         tr.id = mcapData.id
         tr.className = 'coin'
         tdName.className = 'chartname'
+
+        button.className='favoriteBtn btn btn-outline-info'
+        th.scope='row'
+        th.id='myBtn'
+        th.appendChild(button)
+        // <i class="fa-thin fa-rocket-launch"></i>
+
+        
+        tr.id = mcapData.id
+        tr.className ='coin'
+        tdName.className='chartname'
+
        
         document.querySelector('.tableinfo').appendChild(tr)
         tdName.textContent = mcapData.name
         img.src = mcapData.image
+
         img.setAttribute('style', 'width:20px; margin-left:15px')
         img.className = 'coinlogo'
         tdName.appendChild(img)
         tr.appendChild(tdName)
+
+        img.className='coinlogo'
+        img.style.width = '20px'
+        tdName.appendChild(img)
+        tr.append(th,tdName)
         
         tdPrice.textContent = mcapData['current_price']
         let tdUSD = new Intl.NumberFormat('en-US', {
@@ -59,7 +79,7 @@ totalData().then(data => {
             style: 'decimal',
         }).format(tdMcap.textContent)
         tdMcap.textContent = tdMkcap
-        tr.appendChild(tdMcap)
+        tr.appendChild(tdMcap)   
         
     })
     const tableBody = document.querySelectorAll('.coin')
@@ -79,4 +99,27 @@ totalData().then(data => {
             chartTitle.appendChild(img)
         })       
     })   
+    //Link table to Chart START//
+    const tableBody = document.querySelectorAll('.coin')
+    tableBody.forEach((coin)=>{
+       coin.addEventListener('click',(e)=>
+       {    
+            recreateChart()
+            console.log('Initial',coin.id)
+            let urlTarget = `https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=usd&days=0.041&interval=1m`
+            fetchData(urlTarget)
+            hourData(coin.id)
+            console.log('After hour',coin.id)
+            dayData(coin.id)
+            console.log('After day',coin.id)
+            charTitle.textContent= coin.querySelector('.chartname').textContent
+            const logo  = document.createElement('img')
+            logo.className = 'logo'
+            console.log(coin.querySelector('.coinlogo').src)
+            logo.src = coin.querySelector('.coinlogo').src
+            console.log(logo)
+            charTitle.append(logo)
+        })
+    })
+     //Link table to Chart END//
 })
