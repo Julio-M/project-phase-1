@@ -10,6 +10,12 @@ tbody tr {
   table-layout: fixed;
 }
 
+#myTables {
+  border: 0px;
+  display: flex;
+  margin: 10px 0px 20px;
+}
+
 .personaltable {
   border-radius: 10px;
   border-style: solid;

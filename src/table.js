@@ -20,7 +20,6 @@ totalData().then(data => {
         let tdVol = document.createElement('td')
         let tdMcap = document.createElement('td')
         let img = document.createElement('img')
-        let favIcon = document.createElement('i')
 
         // th.textContent = mcapData['market_cap_rank']
         tr.id = mcapData.id
@@ -63,8 +62,6 @@ totalData().then(data => {
         tdMcap.textContent = tdMkcap
         tr.appendChild(tdMcap)   
         
-        favIcon.className = 'bi bi-bookmark'
-        tr.appendChild(favIcon)
     })
     //Link table to Chart START//
     const tableBody = document.querySelectorAll('.coin')
