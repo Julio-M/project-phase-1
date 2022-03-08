@@ -23,11 +23,13 @@ totalData().then(data => {
         th.textContent = mcapData['market_cap_rank']
         tr.id = mcapData.id
         tr.className = 'coin'
+        tdName.className = 'chartname'
        
         document.querySelector('.tableinfo').appendChild(tr)
         tdName.textContent = mcapData.name
         img.src = mcapData.image
         img.style.width = '20px'
+        img.className = 'coinlogo'
         tdName.appendChild(img)
         tr.append(th, tdName)
         
@@ -61,10 +63,20 @@ totalData().then(data => {
         
     })
     const tableBody = document.querySelectorAll('.coin')
+    const tdName = document.querySelector('.chartname')
     tableBody.forEach(coin => {
         console.log(coin)
         coin.addEventListener('click', e => {
-            console.log(e.target.parentNode)
-        })
-    })
+            let chartTitle = document.querySelector('.chartTitle')
+            const img = document.createElement('img')
+            recreateChart() // calling from chart.js
+            fetchData(`https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=usd&days=0.041&interval=1m`)
+            hrButton(coin.id)
+            dyButton(coin.id)
+            chartTitle.textContent = coin.querySelector('.chartname').textContent
+            img.src = coin.querySelector('.coinlogo').src
+            img.setAttribute('style', 'margin-left:15px; width:40px')
+            chartTitle.appendChild(img)
+        })       
+    })   
 })

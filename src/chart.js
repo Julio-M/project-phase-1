@@ -22,22 +22,32 @@ const recreateChart = () => {
   fullChart.append(canvas)
 }
 
-hourButton.addEventListener('click', (e)=>{
-  recreateChart()
-  const hourData = 0.041
-  const hourUrl = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${hourData}&interval=1m`
-  fetchData(hourUrl)
-  
-})
+function hrButton(coin) {
+  newCoin = coin
+  hourButton.addEventListener('click', (e)=>{
+    if (newCoin) {
+      recreateChart()
+      const hourData = 0.041
+      const hourUrl = `https://api.coingecko.com/api/v3/coins/${newCoin}/market_chart?vs_currency=usd&days=${hourData}&interval=1m`
+      
+      fetchData(hourUrl)
 
-dayButton.addEventListener('click', (e) => {
-  recreateChart()
-  const dayData = 1
-  const dayUrl = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${dayData}&interval=1m`
-  
-  fetchData(dayUrl)
- 
-})
+    }
+  })
+}
+
+function dyButton(coin) {
+  newCoin = coin
+  dayButton.addEventListener('click', (e) => {
+    if (newCoin) {
+      recreateChart()
+      const dayData = 1
+      const dayUrl = `https://api.coingecko.com/api/v3/coins/${newCoin}/market_chart?vs_currency=usd&days=${dayData}&interval=1m`
+      
+      fetchData(dayUrl)
+    }
+  }) 
+}
 
 
 async function fetchData(url){

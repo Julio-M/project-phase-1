@@ -28,8 +28,8 @@ div.topChart {
 }
 
 .logo {
-  font-size: 14px;
-  margin-left: 5px;
+  width: 40px;
+  margin-left: 15px;
 }
 
 #filters {
