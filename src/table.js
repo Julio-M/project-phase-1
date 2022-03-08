@@ -22,6 +22,7 @@ totalData().then(data => {
 
         th.textContent = mcapData['market_cap_rank']
         tr.id = mcapData.id
+        tr.className = 'coin'
        
         document.querySelector('.tableinfo').appendChild(tr)
         tdName.textContent = mcapData.name
@@ -59,8 +60,11 @@ totalData().then(data => {
         tr.appendChild(tdMcap)
         
     })
+    const tableBody = document.querySelectorAll('.coin')
+    tableBody.forEach(coin => {
+        console.log(coin)
+        coin.addEventListener('click', e => {
+            console.log(e.target.parentNode)
+        })
+    })
 })
-
-// tableBody.addEventListener('click', e => {
-//     console.log(e.target)
-// })
