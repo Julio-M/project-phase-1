@@ -30,9 +30,18 @@ tbody tr {
 
 tr.coin td {
   border-style: none;
+  width: 19%;
+}
+
+#myBtn {
+  border-style: none;
 }
 
 tr.coin:hover {
   background-color: rgb(240, 235, 235);
   cursor: pointer;
+}
+
+#theFav {
+  width: 6%;
 }

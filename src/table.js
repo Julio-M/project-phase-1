@@ -14,14 +14,21 @@ totalData().then(data => {
     data.forEach(mcapData => {
         let tdName = document.createElement('td')
         let tr = document.createElement('tr')
-        // let th = document.createElement('th')
+        let th = document.createElement('th')
         let tdPrice = document.createElement('td')
         let tdDiff = document.createElement('td')
         let tdVol = document.createElement('td')
         let tdMcap = document.createElement('td')
         let img = document.createElement('img')
+        let button = document.createElement('button')
 
-        // th.textContent = mcapData['market_cap_rank']
+        button.className='favoriteBtn btn btn-outline-info'
+        th.scope='row'
+        th.id='myBtn'
+        th.appendChild(button)
+        // <i class="fa-thin fa-rocket-launch"></i>
+
+        
         tr.id = mcapData.id
         tr.className ='coin'
         tdName.className='chartname'
@@ -32,7 +39,7 @@ totalData().then(data => {
         img.className='coinlogo'
         img.style.width = '20px'
         tdName.appendChild(img)
-        tr.append(tdName)
+        tr.append(th,tdName)
         
         tdPrice.textContent = mcapData['current_price']
         let tdUSD = new Intl.NumberFormat('en-US', {
