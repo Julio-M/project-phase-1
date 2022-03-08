@@ -20,22 +20,43 @@ const recreateChart = () => {
   canvas.height='350'
   divChart.append(canvas)
 }
+time=0.041
 
-hourButton.addEventListener('click', (e)=>{
-  recreateChart()
-  const hourData = 0.041
-  const hourUrl = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${hourData}&interval=1m`
-  fetchData(hourUrl)
-  console.log(hourUrl)
-})
+const hourData = (coin) => {
+    hourButton.addEventListener('click', (e)=>{
+    recreateChart()
+    const hourData = 0.041
+    const hourUrl = `https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=usd&days=${hourData}&interval=1m`
+    fetchData(hourUrl)
+  })  
+}
 
-dayButton.addEventListener('click', (e) => {
-  recreateChart()
-  const dayData = 1
-  const dayUrl = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${dayData}&interval=1m`
-  fetchData(dayUrl)
-  console.log(dayUrl)
-})
+const dayData = (coin) => {
+
+  dayButton.addEventListener('click', (e) => {
+    recreateChart()
+    const dayData = 1
+    const dayUrl = `https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=usd&days=${dayData}&interval=1m`
+    fetchData(dayUrl)
+    console.log(dayUrl)
+  })
+}
+
+// hourButton.addEventListener('click', (e)=>{
+//   recreateChart()
+//   const hourData = 0.041
+//   const hourUrl = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${hourData}&interval=1m`
+//   fetchData(hourUrl)
+//   console.log(hourUrl)
+// })
+
+// dayButton.addEventListener('click', (e) => {
+//   recreateChart()
+//   const dayData = 1
+//   const dayUrl = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${dayData}&interval=1m`
+//   fetchData(dayUrl)
+//   console.log(dayUrl)
+// })
 
 
 async function fetchData(url){
