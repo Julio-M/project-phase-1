@@ -20,25 +20,31 @@ const recreateChart = () => {
   canvas.height='350'
   divChart.append(canvas)
 }
-time=0.041
 
 const hourData = (coin) => {
+    newCoin = coin
     hourButton.addEventListener('click', (e)=>{
-    recreateChart()
-    const hourData = 0.041
-    const hourUrl = `https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=usd&days=${hourData}&interval=1m`
-    fetchData(hourUrl)
+    // recreateChart()
+    if (newCoin){
+      const hourData = 0.041
+      const hourUrl = `https://api.coingecko.com/api/v3/coins/${newCoin}/market_chart?vs_currency=usd&days=${hourData}&interval=1m`
+      fetchData(hourUrl)
+      console.log('From the hour f',newCoin)
+    }
   })  
 }
 
 const dayData = (coin) => {
-
+  newCoin = coin
   dayButton.addEventListener('click', (e) => {
-    recreateChart()
-    const dayData = 1
-    const dayUrl = `https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=usd&days=${dayData}&interval=1m`
-    fetchData(dayUrl)
-    console.log(dayUrl)
+    if (newCoin){
+      // recreateChart()
+      const dayData = 1
+      const dayUrl = `https://api.coingecko.com/api/v3/coins/${newCoin}/market_chart?vs_currency=usd&days=${dayData}&interval=1m`
+      fetchData(dayUrl)
+      console.log(dayUrl)
+      console.log('From the day f',newCoin)
+    }
   })
 }
 

@@ -62,16 +62,16 @@ totalData().then(data => {
     const tableBody = document.querySelectorAll('.coin')
     tableBody.forEach((coin)=>{
        coin.addEventListener('click',(e)=>
-       {
-        recreateChart()
-        let urlTarget = `https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=usd&days=0.041&interval=1m`
-        fetchData(urlTarget)
-        console.log('clicked')
-        console.log(coin.id)
+       {    
+            recreateChart()
+            console.log('Initial',coin.id)
+            let urlTarget = `https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=usd&days=0.041&interval=1m`
+            fetchData(urlTarget)
+            hourData(coin.id)
+            console.log('After hour',coin.id)
+            dayData(coin.id)
+            console.log('After day',coin.id)
         })
-        console.log
-        hourData(coin.id)
-        dayData(coin.id)
     })
      //Link table to Chart END//
 })
