@@ -24,8 +24,8 @@ const recreateChart = () => {
 const hourData = (coin) => {
     newCoin = coin
     hourButton.addEventListener('click', (e)=>{
-    // recreateChart()
     if (newCoin){
+      recreateChart()
       const hourData = 0.041
       const hourUrl = `https://api.coingecko.com/api/v3/coins/${newCoin}/market_chart?vs_currency=usd&days=${hourData}&interval=1m`
       fetchData(hourUrl)
@@ -38,7 +38,7 @@ const dayData = (coin) => {
   newCoin = coin
   dayButton.addEventListener('click', (e) => {
     if (newCoin){
-      // recreateChart()
+      recreateChart()
       const dayData = 1
       const dayUrl = `https://api.coingecko.com/api/v3/coins/${newCoin}/market_chart?vs_currency=usd&days=${dayData}&interval=1m`
       fetchData(dayUrl)

@@ -6,6 +6,8 @@ const totalData = async() => {
     return res
 }
 
+const charTitle = document.querySelector('.chartTitle')
+const logo = document.querySelector('.logo')
 
 totalData().then(data => {
    
@@ -22,10 +24,12 @@ totalData().then(data => {
         th.textContent = mcapData['market_cap_rank']
         tr.id = mcapData.id
         tr.className ='coin'
+        tdName.className='chartname'
        
         document.querySelector('.tableinfo').appendChild(tr)
         tdName.textContent = mcapData.name
         img.src = mcapData.image
+        img.className='coinlogo'
         img.style.width = '20px'
         tdName.appendChild(img)
         tr.append(th, tdName)
@@ -71,6 +75,13 @@ totalData().then(data => {
             console.log('After hour',coin.id)
             dayData(coin.id)
             console.log('After day',coin.id)
+            charTitle.textContent= coin.querySelector('.chartname').textContent
+            const logo  = document.createElement('img')
+            logo.className = 'logo'
+            console.log(coin.querySelector('.coinlogo').src)
+            logo.src = coin.querySelector('.coinlogo').src
+            console.log(logo)
+            charTitle.append(logo)
         })
     })
      //Link table to Chart END//

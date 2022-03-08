@@ -27,8 +27,8 @@ div.topChart {
   font-family: "Roboto", sans-serif;
 }
 
-.logo {
-  font-size: 14px;
+h3 img.logo {
+  width: 40px;
   margin-left: 5px;
 }
 
