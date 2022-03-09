@@ -73,8 +73,10 @@ async function toFavTable(){
 
 toFavTable().then(() => {
   const deleteB = document.querySelectorAll('.delete')
+  console.log(deleteB)
   deleteB.forEach((theId)=>{
     theId.addEventListener('click', (e)=>{
+      //console.log(theId)
       deleteFav(theId.id)
     })
   })
