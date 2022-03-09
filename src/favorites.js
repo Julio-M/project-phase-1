@@ -1,10 +1,42 @@
+
+
+
 const createFave = (cname,cprice,cpchange) => {
+    const favoriteTable = document.querySelector('#favrows')
+    let theRow = document.createElement('tr')
     let theName = document.createElement('td')
     let thePrice = document.createElement('td')
     let theChPrice = document.createElement('td')
+
+    theRow.className='coin'
+    theName.textContent =cname
+    thePrice.textContent=cprice
+    theChPrice.textContent=cpchange
+
+    console.log('THIS IS THE TABLE', favoriteTable)
+    theRow.append(theName,thePrice,theChPrice)
+    favoriteTable.appendChild(theRow)
 }
 
+// getData().then(createFave('name','hello', 'there'))
+
 const baseUrl="http://localhost:3000/favorites"
+
+async function toFavTable(){
+
+    try {
+    let req = await fetch(baseUrl)
+    const res =  await req.json()
+    const data = res.map((value)=>{
+        createFave(value.name,value["current_price"],value["price_change_percentage_24h"])
+    })
+    } catch(error)
+    {
+        console.log(error)
+    }
+}
+
+fetchData().then(toFavTable())
 
 async function sendData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPriceChange){
 
@@ -14,8 +46,13 @@ async function sendData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPr
         const filterData = res.map((value) => {
             return value.cgid
         })
-        console.log('From map', filterData)
+        console.log('Before post', filterData)
         filterData.includes(coinId) || postData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPriceChange)
+        // if (!filterData.includes(coinId)){
+        //     postData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPriceChange)
+
+        // }
+    
         } catch(error)
         {
           console.log(error)
