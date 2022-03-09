@@ -22,6 +22,7 @@ totalData().then(data => {
         let img = document.createElement('img')
         let button = document.createElement('button')
 
+        button.id='button'
         button.className='favoriteBtn btn btn-outline-info'
         th.scope='row'
         th.id='myBtn'
@@ -32,6 +33,8 @@ totalData().then(data => {
         tr.id = mcapData.id
         tr.className ='coin'
         tdName.className='chartname'
+        tdPrice.className='price'
+        tdDiff.className='percentdiff'
        
         document.querySelector('.tableinfo').appendChild(tr)
         tdName.textContent = mcapData.name
@@ -91,6 +94,7 @@ totalData().then(data => {
             console.log(logo)
             charTitle.append(logo)
         })
+        clickFav(coin)
     })
      //Link table to Chart END//
 })
