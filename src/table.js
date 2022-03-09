@@ -20,10 +20,15 @@ totalData().then(data => {
         let tdVol = document.createElement('td')
         let tdMcap = document.createElement('td')
         let img = document.createElement('img')
-        let button = document.createElement('button')
+        let button = document.createElement('i')
 
         button.id='button'
         button.className='favoriteBtn btn btn-outline-info'
+        //button.className='favoriteBtn btn btn-outline-info'
+        //<i class="fa-brands fa-square-font-awesome-stroke"></i>
+        //<i class="fa-brands fa-square-font-awesome"></i>
+        //<i class="fa-solid fa-circle-notch"></i>
+        button.className=('fa-solid fa-circle-notch')
         th.scope='row'
         th.id='myBtn'
         th.appendChild(button)
