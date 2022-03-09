@@ -78,10 +78,8 @@ totalData().then(data => {
     btnBody.forEach((btn)=>{
         btn.addEventListener('click', (e)=>{
             e.preventDefault()
-            console.log(btn.id)
             data.forEach(btnData => {
                 if (btn.id === btnData.id){
-                    console.log(btnData.id)
                     sendData(btnData.id,btnData.symbol,btnData.name,btnData.image,btnData['current_price'],btnData['price_change_percentage_24h'])
                 }
             })
