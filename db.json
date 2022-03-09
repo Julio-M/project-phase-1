@@ -1,19 +1,384 @@
 {
-  "posts": [
+  "favorites": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "id": 0,
+      "symbol": "",
+      "name": "",
+      "image": "",
+      "current_price": 0,
+      "price_change_percentage_24h": 0
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "username": "example",
+      "id": 1
+    },
+    {
+      "username": "example",
+      "id": 2
+    },
+    {
+      "username": "example",
+      "id": 3
+    },
+    {
+      "username": "example",
+      "id": 4
+    },
+    {
+      "username": "example",
+      "id": 5
+    },
+    {
+      "username": "example",
+      "id": 6
+    },
+    {
+      "username": "example",
+      "id": 7
+    },
+    {
+      "username": "example",
+      "id": 8
+    },
+    {
+      "username": "example",
+      "id": 9
+    },
+    {
+      "username": "example",
+      "id": 10
+    },
+    {
+      "username": "example",
+      "id": 11
+    },
+    {
+      "username": "example",
+      "id": 12
+    },
+    {
+      "username": "example",
+      "id": 13
+    },
+    {
+      "username": "example",
+      "id": 14
+    },
+    {
+      "username": "example",
+      "id": 15
+    },
+    {
+      "username": "example",
+      "id": 16
+    },
+    {
+      "username": "example",
+      "id": 17
+    },
+    {
+      "username": "example",
+      "id": 18
+    },
+    {
+      "username": "example",
+      "id": 19
+    },
+    {
+      "username": "example",
+      "id": 20
+    },
+    {
+      "username": "example",
+      "id": 21
+    },
+    {
+      "username": "example",
+      "id": 22
+    },
+    {
+      "username": "example",
+      "id": 23
+    },
+    {
+      "username": "example",
+      "id": 24
+    },
+    {
+      "username": "example",
+      "id": 25
+    },
+    {
+      "username": "example",
+      "id": 26
+    },
+    {
+      "username": "example",
+      "id": 27
+    },
+    {
+      "username": "example",
+      "id": 28
+    },
+    {
+      "username": "example",
+      "id": 29
+    },
+    {
+      "username": "example",
+      "id": 30
+    },
+    {
+      "username": "example",
+      "id": 31
+    },
+    {
+      "username": "example",
+      "id": 32
+    },
+    {
+      "username": "example",
+      "id": 33
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 34
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 35
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 36
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 37
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 38
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 39
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 40
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 41
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 42
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 43
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 44
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 45
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 46
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 47
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 48
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 49
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 50
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 51
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 52
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 53
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 54
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 55
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 56
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 57
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 58
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 59
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 60
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 61
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 62
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 63
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 64
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 65
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 66
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 67
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 68
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 69
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 70
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 71
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 72
+    },
+    {
+      "name": "ethereum",
+      "current_price": 3000,
+      "price_change_percentage_24h": 2.39,
+      "id": 73
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
