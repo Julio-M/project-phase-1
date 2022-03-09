@@ -33,8 +33,18 @@ tr.coin td {
   width: 19%;
 }
 
-#myBtnCol {
+#myBtnCol,
+#logoFav {
   border-style: none;
+}
+
+#logoFav {
+  width: 8%;
+}
+
+.coinFav td {
+  border-style: none;
+  width: 27%;
 }
 
 tr.coin:hover {

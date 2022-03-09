@@ -1,26 +1,60 @@
 
 
 
-const createFave = (cname,cprice,cpchange) => {
+const createFave = (cname,cprice,cpchange,cimage,cid) => {
     const favoriteTable = document.querySelector('#favrows')
     let theRow = document.createElement('tr')
     let theName = document.createElement('td')
     let thePrice = document.createElement('td')
     let theChPrice = document.createElement('td')
+    let img = document.createElement('img')
+    let button = document.createElement('i')
+    let th = document.createElement('th')
+    let theLogo = document.createElement('th')
 
-    theRow.className='coin'
+    button.id=cid
+    button.className=('fa-solid fa-circle-notch myBtn delete')
+    th.scope='row'
+    th.id='myBtnCol'
+    th.appendChild(button)
+
+    img.src = cimage
+    img.className='coinlogo'
+    img.style.width = '20px'
+
+    theLogo.id='logoFav'
+    theLogo.append(img)
+
+    theRow.className='coinFav'
     theName.textContent =cname
     thePrice.textContent=cprice
     theChPrice.textContent=cpchange
 
-    console.log('THIS IS THE TABLE', favoriteTable)
-    theRow.append(theName,thePrice,theChPrice)
+    theRow.append(theLogo,theName,thePrice,theChPrice,th)
     favoriteTable.appendChild(theRow)
 }
 
 // getData().then(createFave('name','hello', 'there'))
 
+
+
 const baseUrl="http://localhost:3000/favorites"
+
+async function deleteFav(theid){
+  try{
+    const r = await fetch(baseUrl +`/${theid}`,{
+     method:'Delete',
+     })
+    const coinData = await r.json()
+    console.log(coinData.id)
+    }
+   catch(err) {
+     // catches errors both in fetch and response.json
+     alert(err);
+   }
+ }
+
+
 
 async function toFavTable(){
 
@@ -28,7 +62,7 @@ async function toFavTable(){
     let req = await fetch(baseUrl)
     const res =  await req.json()
     const data = res.map((value)=>{
-        createFave(value.name,value["current_price"],value["price_change_percentage_24h"])
+        createFave(value.name,value["current_price"],value["price_change_percentage_24h"],value.image,value.id)
     })
     } catch(error)
     {
@@ -36,7 +70,16 @@ async function toFavTable(){
     }
 }
 
-fetchData().then(toFavTable())
+
+toFavTable().then(() => {
+  const deleteB = document.querySelectorAll('.delete')
+  deleteB.forEach((theId)=>{
+    theId.addEventListener('click', (e)=>{
+      deleteFav(theId.id)
+    })
+  })
+}
+)
 
 async function sendData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPriceChange){
 
