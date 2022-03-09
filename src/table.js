@@ -74,7 +74,7 @@ totalData().then(data => {
     })
     //LINK BUTTON START
     const btnBody = document.querySelectorAll('.myBtn')
-    console.log(btnBody)
+
     btnBody.forEach((btn)=>{
         btn.addEventListener('click', (e)=>{
             e.preventDefault()
@@ -83,7 +83,18 @@ totalData().then(data => {
                     sendData(btnData.id,btnData.symbol,btnData.name,btnData.image,btnData['current_price'],btnData['price_change_percentage_24h'])
                 }
             })
+            let favrow = document.querySelector('#favrows')
+            let tdName = document.createElement('td')
+            let tr = document.createElement('tr')
+            let tdPrice = document.createElement('td')
+            let tdDiff = document.createElement('td')
             
+            tdName.textContent = e.target.parentNode.parentNode.querySelector('.chartname').textContent
+            tdPrice.textContent = e.target.parentNode.parentNode.querySelector('.price').textContent
+            tdDiff.textContent = e.target.parentNode.parentNode.querySelector('.percentdiff').textContent
+
+            tr.append(tdName, tdPrice, tdDiff)
+            favrow.append(tr)
         })
     })
     //LINK BUTTON END

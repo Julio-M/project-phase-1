@@ -16,6 +16,7 @@ async function sendData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPr
         })
         console.log('From map', filterData)
         filterData.includes(coinId) || postData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPriceChange)
+ 
         } catch(error)
         {
           console.log(error)
@@ -58,3 +59,20 @@ async function sendData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPr
       }
 }
 
+// async function stickData() {
+//   let req = await fetch(baseUrl)
+//   let res = await req.json()
+//   return res
+// }
+
+// stickData().then (data => {
+//   data.forEach(newData => {
+//     let favrow = document.querySelector('#favrows')
+//     let td = document.createElement('td')
+//     let tr = document.createElement('tr')
+//     td.textContent = newData.name
+//     console.log(td)
+//     tr.append(td)
+//     favrow.append(tr)
+//   })
+// })
