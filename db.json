@@ -1,19 +1,44 @@
 {
-  "posts": [
+  "favorites": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "cgid": "bitcoin",
+      "symbol": "btc",
+      "name": "Bitcoin",
+      "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+      "current_price": 42316,
+      "price_change_percentage_24h": 8.28924,
+      "favorite": true,
+      "id": 16
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "cgid": "ethereum",
+      "symbol": "eth",
+      "name": "Ethereum",
+      "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
+      "current_price": 2745.89,
+      "price_change_percentage_24h": 5.71496,
+      "favorite": true,
+      "id": 17
+    },
+    {
+      "cgid": "ripple",
+      "symbol": "xrp",
+      "name": "XRP",
+      "image": "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1605778731",
+      "current_price": 0.770332,
+      "price_change_percentage_24h": 5.84147,
+      "favorite": true,
+      "id": 18
+    },
+    {
+      "cgid": "bitcoin",
+      "symbol": "btc",
+      "name": "Bitcoin",
+      "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+      "current_price": 42326,
+      "price_change_percentage_24h": 7.6802,
+      "favorite": true,
+      "id": 19
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

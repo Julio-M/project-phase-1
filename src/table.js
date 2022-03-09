@@ -22,17 +22,11 @@ totalData().then(data => {
         let img = document.createElement('img')
         let button = document.createElement('i')
 
-        button.id='button'
-        button.className='favoriteBtn btn btn-outline-info'
-        //button.className='favoriteBtn btn btn-outline-info'
-        //<i class="fa-brands fa-square-font-awesome-stroke"></i>
-        //<i class="fa-brands fa-square-font-awesome"></i>
-        //<i class="fa-solid fa-circle-notch"></i>
-        button.className=('fa-solid fa-circle-notch')
+        button.id=mcapData.id
+        button.className=('fa-solid fa-circle-notch myBtn')
         th.scope='row'
-        th.id='myBtn'
+        th.id='myBtnCol'
         th.appendChild(button)
-        // <i class="fa-thin fa-rocket-launch"></i>
 
         
         tr.id = mcapData.id
@@ -78,28 +72,46 @@ totalData().then(data => {
         tr.appendChild(tdMcap)   
         
     })
+    //LINK BUTTON START
+    const btnBody = document.querySelectorAll('.myBtn')
+    console.log(btnBody)
+    btnBody.forEach((btn)=>{
+        btn.addEventListener('click', (e)=>{
+            e.preventDefault()
+            console.log(btn.id)
+            data.forEach(btnData => {
+                if (btn.id === btnData.id){
+                    console.log(btnData.id)
+                    sendData(btnData.id,btnData.symbol,btnData.name,btnData.image,btnData['current_price'],btnData['price_change_percentage_24h'])
+                }
+            })
+            
+        })
+    })
+    //LINK BUTTON END
+
     //Link table to Chart START//
     const tableBody = document.querySelectorAll('.coin')
     tableBody.forEach((coin)=>{
        coin.addEventListener('click',(e)=>
        {    
             recreateChart()
-            console.log('Initial',coin.id)
+            //console.log('Initial',coin.id)
             let urlTarget = `https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=usd&days=0.041&interval=1m`
             fetchData(urlTarget)
             hourData(coin.id)
-            console.log('After hour',coin.id)
             dayData(coin.id)
-            console.log('After day',coin.id)
+            //console.log('After day',coin.id)
             charTitle.textContent= coin.querySelector('.chartname').textContent
             const logo  = document.createElement('img')
             logo.className = 'logo'
-            console.log(coin.querySelector('.coinlogo').src)
+            //console.log(coin.querySelector('.coinlogo').src)
             logo.src = coin.querySelector('.coinlogo').src
-            console.log(logo)
+            //console.log(logo)
             charTitle.append(logo)
         })
-        clickFav(coin)
+        // clickFav(coin)
+
     })
      //Link table to Chart END//
 })
