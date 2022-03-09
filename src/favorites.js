@@ -4,9 +4,9 @@ const createFave = (cname,cprice,cpchange) => {
     let theChPrice = document.createElement('td')
 }
 
+const baseUrl="http://localhost:3000/favorites"
 
 async function sendData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPriceChange){
-    const baseUrl="http://localhost:3000/favorites"
 
     try{
         let req = await fetch(baseUrl)
@@ -23,8 +23,8 @@ async function sendData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPr
 
   }
 
+
   async function postData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPriceChange){
-    const baseUrl="http://localhost:3000/favorites"
 
     const data = { 
         "cgid":`${coinId}`,

@@ -49,6 +49,16 @@
       "price_change_percentage_24h": 0.00844,
       "favorite": true,
       "id": 20
+    },
+    {
+      "cgid": "ripple",
+      "symbol": "xrp",
+      "name": "XRP",
+      "image": "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1605778731",
+      "current_price": 0.763192,
+      "price_change_percentage_24h": 5.51212,
+      "favorite": true,
+      "id": 21
     }
   ]
 }
