@@ -3,7 +3,8 @@ div.card {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 10px 0px 20px;
+  /* margin: 10px 0px 20px; */
+  height: 290px;
 }
 
 div.card-body#feat-card {
@@ -22,4 +23,10 @@ div.card-body#feat-card {
 
 .pull-right {
   display: none;
+}
+
+#embeded-tweet {
+  height: 165px;
+  position: relative;
+  overflow: scroll;
 }
