@@ -140,6 +140,8 @@ async function fetchData(url){
 }
 
 fetchData(defaultUrl)
+dayData('bitcoin')
+hourData("bitcoin")
 
 
 
