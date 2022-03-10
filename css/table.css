@@ -3,6 +3,7 @@ tbody {
   max-height: 500px;
   overflow-y: auto;
 }
+
 thead,
 tbody tr {
   display: table;
@@ -20,8 +21,8 @@ tbody tr {
   border-radius: 10px;
   border-style: solid;
   border: 1px solid rgba(255, 0, 0, 0.3);
-  display: flex; /*added*/
-  flex-direction: column; /*added*/
+  display: flex;
+  flex-direction: column;
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 20px;
@@ -54,4 +55,16 @@ tr.coin:hover {
 
 #theFav {
   width: 6%;
+}
+
+#favorites {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.maintableinfo {
+  overflow-y: auto;
 }

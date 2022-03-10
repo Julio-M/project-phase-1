@@ -34,6 +34,7 @@
   <div class='container-fluid'> 
     <div id='topbar' include-nav="./components/navbar.html" ></div>
     <div id='featured'class='card-group' include-featured='./components/featured.html'></div>
+    <div class='chartFav' id='myTables'>
     <div class='chart'>
       <div class='topChart'>
       <h3 class="chartTitle">Bitcoin
@@ -43,13 +44,16 @@
         <button id='hour' type="button" class="btn btn-secondary">Hour</button>
         <button id='day' type="button" class="btn btn-secondary">Days</button>
       </div>
+      
     </div>
       <canvas id="myChart" height="350">
       </canvas>
     </div>
+    <div class='col personaltable' id='favorites' include-favorites='./components/favorites.html'></div>
+  </div>
     <div id='myTables'>
-    <div class='personaltable col-8' id="tabledata" include-table='./components/table.html'></div>
-    <div class='personaltable' id='favorites' include-favorites='./components/favorites.html'></div>
+    <div class='personaltable col' id="tabledata" include-table='./components/table.html'></div>
+    <!-- <div class='personaltable' id='favorites' include-favorites='./components/favorites.html'></div> -->
     </div>
     <div id='footer' include-footer='./components/footer.html'></div>
   </div>  

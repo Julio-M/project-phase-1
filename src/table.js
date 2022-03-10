@@ -39,7 +39,7 @@ totalData().then(data => {
         tdPrice.className='price'
         tdDiff.className='percentdiff'
        
-        document.querySelector('.tableinfo').appendChild(tr)
+        document.querySelector('.maintableinfo').appendChild(tr)
         tdName.textContent = mcapData.name
         img.src = mcapData.image
         img.className='coinlogo'
