@@ -27,7 +27,7 @@ div.topChart {
   font-family: "Roboto", sans-serif;
 }
 
-h3 img.logo {
+h3 img.logo{
   width: 40px;
   margin-left: 5px;
 }
@@ -54,6 +54,10 @@ h3 img.logo {
   box-shadow: 0 5px 20px rgba(245, 179, 193, 0.5);
 }
 
+h3 img.fav {
+  width: 40px;
+  margin-left: 5px;
+}
 /* 
 "id":0,
 "cgid": "",

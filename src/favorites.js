@@ -1,7 +1,7 @@
 
 
 
-const createFave = (cname,cprice,cpchange,cimage,cid) => {
+const createFave = (cname,cprice,cpchange,cimage,cid, cgid) => {
     const favoriteTable = document.querySelector('#favrows')
     let theRow = document.createElement('tr')
     let theName = document.createElement('td')
@@ -25,13 +25,37 @@ const createFave = (cname,cprice,cpchange,cimage,cid) => {
     theLogo.id='logoFav'
     theLogo.append(img)
 
+    theRow.id = cgid
     theRow.className='coinFav'
     theName.textContent =cname
+    theName.className='favName'
     thePrice.textContent=cprice
     theChPrice.textContent=cpchange
 
+    
     theRow.append(theLogo,theName,thePrice,theChPrice,th)
     favoriteTable.appendChild(theRow)
+    // add click function to each row to show chart start
+    const favCoin = document.querySelectorAll('.coinFav')
+    const favLogo  = document.createElement('img')
+    const header = document.createElement('h3')
+    favCoin.forEach(row => {
+      row.addEventListener('click', e => {
+        let favURL = `https://api.coingecko.com/api/v3/coins/${row.id}/market_chart?vs_currency=usd&days=0.041&interval=1m`
+        fetchData(favURL)
+        hourData(row.id)
+        dayData(row.id)
+        
+        favLogo.src = row.querySelector('.coinlogo').src
+        favLogo.className = 'fav'
+        header.textContent = row.querySelector('.favName').textContent
+        charTitle.innerHTML = ''
+        header.appendChild(favLogo)
+        charTitle.append(header)
+      })
+    })
+
+    // add click function to each row to show chart end
 }
 
 // getData().then(createFave('name','hello', 'there'))
@@ -62,7 +86,7 @@ async function toFavTable(){
     let req = await fetch(baseUrl)
     const res =  await req.json()
     const data = res.map((value)=>{
-        createFave(value.name,value["current_price"],value["price_change_percentage_24h"],value.image,value.id)
+        createFave(value.name,value["current_price"],value["price_change_percentage_24h"],value.image,value.id,value.cgid)
     })
     } catch(error)
     {
