@@ -1,2 +1,6 @@
-.app {
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap");
+
+th,
+h3.chartTitle {
+  font-family: "Playfair Display", serif;
 }

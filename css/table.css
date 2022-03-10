@@ -63,8 +63,20 @@ tr.coin:hover {
   margin-left: 0px;
   height: 100%;
   overflow-y: auto;
+  cursor: pointer;
 }
 
 .maintableinfo {
   overflow-y: auto;
+}
+
+td#watchlist {
+  text-align: center;
+  /* text-shadow: rgba(255, 255, 255, 0.87);
+  background-color: #568c60; */
+  color: #ffffff;
+  background: #f7c1c1;
+  text-shadow: 4px 3px 0px #7a7a7a;
+  color: #ffffff;
+  background: #568c60;
 }

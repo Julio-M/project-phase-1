@@ -1,11 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap");
 
 @media screen and (max-width: 850px) {
 }
 
+#topbar {
+  background-color: #568c60 !important;
+  position: sticky;
+  top: 0%;
+  z-index: 1000;
+}
+
 #title {
-  font-family: "Anton", sans-serif;
-  color: rgba(158, 32, 32, 0.52);
+  color: #ffffff;
+  background: #f7c1c1;
+  /* text-shadow: 4px 3px 0px #7a7a7a; */
+  color: #ffffff;
+  background: #568c60;
+  margin-left: 10px;
+  font-family: "Playfair Display", serif;
 }
 
 #pagelogo {
