@@ -30,6 +30,10 @@ const hourData = (coin) => {
       const hourUrl = `https://api.coingecko.com/api/v3/coins/${newCoin}/market_chart?vs_currency=usd&days=${hourData}&interval=1m`
       fetchData(hourUrl)
       console.log('From the hour f',newCoin)
+      const nChart = document.querySelector('#myChart')
+      nChart.className='hour'
+      console.log(nChart)
+
     }
   })  
 }
@@ -44,6 +48,8 @@ const dayData = (coin) => {
       fetchData(dayUrl)
       console.log(dayUrl)
       console.log('From the day f',newCoin)
+      const nChart = document.querySelector('#myChart')
+      nChart.className='day'
     }
   })
 }
@@ -69,18 +75,40 @@ async function fetchData(url){
   const res = await fetch(url)
   const coinData = await res.json()
   const prices = coinData.prices
-  let allData = {xValues:[],yValues:[]}
-  prices.forEach((data)=>{
+  let allData = {xValues:[],yValues:[], xHourValues:[]}
+  prices.map((data)=>{
     //console.log(typeof data[0])
     //console.log(data[0])
-    allData.xValues.push(new Date(data[0]).toDateString())
+    allData.xHourValues.push(new Date(data[0]).toLocaleString('en-US', {hour:'numeric',minute:'numeric'})),
+    allData.xValues.push(new Date(data[0]).toLocaleString('en-US', {weekday:'short', day:'numeric',}))
     allData.yValues.push(data[1].toFixed(2))
     //console.log(typeof xValues)
   })
+
+  const xDataSwitch = () => {
+    const nChart = document.querySelector('#myChart')
+    console.log(nChart.className)
+    if(nChart.className==='hour')
+    {
+      let xHour = allData.xHourValues
+      return xHour
+    }
+    else if(nChart.className==='day')
+    {
+      let xDay = allData.xValues
+      return xDay
+    } else {
+      let xHour = allData.xHourValues
+      return xHour
+    }
+  }
+  
+
+
   new Chart('myChart', {
     type: "line",
     data: {
-      labels: allData.xValues,
+      labels: xDataSwitch(),
       datasets: [{
         fill: false,
         lineTension: 0,
@@ -94,6 +122,10 @@ async function fetchData(url){
       scales: {
    
           xAxes: [{
+            ticks: {
+              autoSkip: true,
+              maxTicksLimit: 20
+          },
               gridLines: {
                   display:false
               }
