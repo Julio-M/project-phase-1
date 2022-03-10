@@ -12,8 +12,19 @@ const createFave = (cname,cprice,cpchange,cimage,cid, cgid) => {
     let th = document.createElement('th')
     let theLogo = document.createElement('th')
 
+
     button.id=cid
-    button.className=('fa-solid fa-circle-notch myBtn delete')
+    button.className=('fa-solid fa-gem myBtn delete')
+
+    let addbtn = document.querySelectorAll('.add')
+    addbtn.forEach((spec)=>{
+      if (spec.id===cgid){
+        spec.className='fa-solid fa-gem changed'
+      }
+    })
+    console.log('THIS IS THE ADD', addbtn)
+
+    
     th.scope='row'
     th.id='myBtnCol'
     th.appendChild(button)
@@ -115,13 +126,21 @@ async function sendData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPr
         const filterData = res.map((value) => {
             return value.cgid
         })
-        console.log('Before post', filterData)
+        
         filterData.includes(coinId) || postData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPriceChange)
         // if (!filterData.includes(coinId)){
         //     postData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPriceChange)
 
         // }
-    
+        // addBtn.forEach(add => {
+        //   console.log(add)
+        //   add.addEventListener('click', e => {
+        //     if (add.id in filterData === true) {
+        //       add.className = ('fa-regular fa-gem myBtn add')
+        //     } 
+        //   })
+        // })
+
         } catch(error)
         {
           console.log(error)

@@ -23,7 +23,11 @@ totalData().then(data => {
         let button = document.createElement('i')
 
         button.id=mcapData.id
-        button.className=('fa-solid fa-circle-notch myBtn')
+        button.className=('fa-regular fa-gem myBtn add')
+        button.addEventListener('click', e => {
+            button.className = ('fa-solid fa-gem myBtn add')
+        })
+
         th.scope='row'
         th.id='myBtnCol'
         th.appendChild(button)
@@ -76,17 +80,32 @@ totalData().then(data => {
     const btnBody = document.querySelectorAll('.myBtn')
     console.log(btnBody)
     btnBody.forEach((btn)=>{
+        console.log(btn)
         btn.addEventListener('click', (e)=>{
             e.preventDefault()
             data.forEach(btnData => {
+                
                 if (btn.id === btnData.id){
                     sendData(btnData.id,btnData.symbol,btnData.name,btnData.image,btnData['current_price'],btnData['price_change_percentage_24h'])
-                }
+
+                } 
             })
-            
+            // const thisBtn = document.querySelectorAll('.delete')
+            // thisBtn.forEach((dlt)=>{
+            //     dlt.className==='delete'?dlt.className = ('fa-solid fa-gem'):dlt.className = ('fa-regular fa-gem')
+            // })
         })
     })
     //LINK BUTTON END
+
+    //CLICK BUTTON AND BECOMES SOLID START
+
+    // btnBody.forEach(btn => {
+    //     btn.addEventListener('click', e => {
+    //         btn.className = "fa-solid fa-gem"
+    //     })
+    // })
+    //CLICK BUTTON AND BECOMES SOLID END
 
     //Link table to Chart START//
     const tableBody = document.querySelectorAll('.coin')
