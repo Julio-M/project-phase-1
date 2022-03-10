@@ -7,3 +7,14 @@
   font-family: "Anton", sans-serif;
   color: rgba(158, 32, 32, 0.52);
 }
+
+#pagelogo {
+  border-radius: 100%;
+  width: 5%;
+}
+
+#pagelogo:hover {
+  width: 50%;
+  position: absolute;
+  z-index: 1000;
+}
