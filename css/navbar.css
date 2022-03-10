@@ -11,6 +11,7 @@
 #pagelogo {
   border-radius: 100%;
   width: 5%;
+  cursor: zoom-in;
 }
 
 #pagelogo:hover {
