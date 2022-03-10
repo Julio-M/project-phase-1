@@ -87,7 +87,6 @@ async function fetchData(url){
 
   const xDataSwitch = () => {
     const nChart = document.querySelector('#myChart')
-    console.log(nChart.className)
     if(nChart.className==='hour')
     {
       let xHour = allData.xHourValues

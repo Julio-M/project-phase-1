@@ -7,7 +7,8 @@ div.chart {
   display: flex; /*added*/
   flex-direction: column; /*added*/
   margin-left: 20px;
-  margin-right: 20px;
+  width: 908px;
+  margin-right: 40px;
 }
 
 div.topChart {
@@ -21,6 +22,7 @@ div.topChart {
   position: relative;
   display: flex;
   margin: 10px 0px 20px;
+  width: 100%;
 }
 
 .chartTitle {
@@ -51,9 +53,12 @@ h3 img.logo {
 
 #filters button:hover {
   font-size: 14px;
-  box-shadow: 0 5px 20px rgba(245, 179, 193, 0.5);
+  box-shadow: 0 5px 20px rgba(197, 156, 165, 0.5);
 }
 
+.chartFav {
+  height: 450px;
+}
 /* 
 "id":0,
 "cgid": "",
