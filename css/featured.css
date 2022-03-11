@@ -7,7 +7,11 @@ div.card {
   display: flex;
   justify-content: space-between;
   /* margin: 10px 0px 20px; */
-  height: 290px;
+  height: 350px;
+}
+
+div#feat-card {
+  height: 225px;
 }
 
 div.card-body#feat-card {
@@ -24,12 +28,22 @@ div.card-body#feat-card {
   font-size: 12px;
 }
 
+#thenews {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+#theyoutube {
+  height: 100%;
+  overflow: scroll;
+}
+
 .pull-right {
   display: none;
 }
 
 #embeded-tweet {
-  height: 165px;
+  height: 225px;
   position: relative;
   overflow: scroll;
 }
@@ -42,4 +56,20 @@ div.card-body#feat-card {
 
 .card-title {
   font-family: "Playfair Display", serif;
+}
+
+.youtube {
+  height: 225px;
+}
+
+@media only screen and (max-width: 1600px) {
+  div.card {
+    height: 290px;
+  }
+
+  #embeded-tweet {
+    height: 165px;
+    position: relative;
+    overflow: scroll;
+  }
 }

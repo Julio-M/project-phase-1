@@ -7,7 +7,7 @@ div.chart {
   display: flex; /*added*/
   flex-direction: column; /*added*/
   margin-left: 20px;
-  width: 908px;
+  width: 1225px;
   margin-right: 40px;
 }
 
@@ -64,11 +64,9 @@ h3 img.fav {
 .chartFav {
   height: 450px;
 }
-/* 
-"id":0,
-"cgid": "",
-"symbol": "",
-"name": "",
-"image": "",
-"current_price": 0,
-"price_change_percentage_24h": 0 */
+
+@media only screen and (max-width: 1600px) {
+  div.chart {
+    width: 908px;
+  }
+}
