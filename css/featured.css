@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap");
+
 div.card {
   border: 0px;
   width: 100%;
@@ -35,4 +38,8 @@ div.card-body#feat-card {
   justify-content: space-between;
   display: flex; /*added*/
   flex-direction: column; /*added*/
+}
+
+.card-title {
+  font-family: "Playfair Display", serif;
 }
