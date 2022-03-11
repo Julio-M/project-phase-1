@@ -62,6 +62,7 @@ const createFave = (cname,cprice,cpchange,cimage,cid, cgid) => {
     favCoin.forEach(row => {
       row.addEventListener('click', e => {
         let favURL = `https://api.coingecko.com/api/v3/coins/${row.id}/market_chart?vs_currency=usd&days=0.041&interval=1m`
+        recreateChart()
         fetchData(favURL)
         hourData(row.id)
         dayData(row.id)
