@@ -40,8 +40,17 @@ const createFave = (cname,cprice,cpchange,cimage,cid, cgid) => {
     theRow.className='coinFav'
     theName.textContent =cname
     theName.className='favName'
-    thePrice.textContent=cprice
-    theChPrice.textContent=cpchange
+
+    
+    let usdcprice = new Intl.NumberFormat('en-US', {
+      style:'currency', 
+      currency:'USD',
+      currencySign: 'accounting'
+  }).format(cprice)
+    thePrice.textContent=usdcprice
+
+    percpchange = parseFloat(cpchange).toFixed(2)
+    theChPrice.textContent=percpchange +'%'
 
     
     theRow.append(theLogo,theName,thePrice,theChPrice,th)
