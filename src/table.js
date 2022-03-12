@@ -23,11 +23,8 @@ totalData().then(data => {
         let button = document.createElement('i')
 
         button.id=mcapData.id
-        button.className=('fa-regular fa-gem myBtn add')
-        button.addEventListener('click', e => {
-            button.className = ('fa-solid fa-gem myBtn add')
-        })
-
+        button.className=('fa-regular fa-gem myBtn')
+        button.dataset.clicked='unclicked'
         th.scope='row'
         th.id='myBtnCol'
         th.appendChild(button)
@@ -86,26 +83,33 @@ totalData().then(data => {
             data.forEach(btnData => {
                 
                 if (btn.id === btnData.id){
+
                     sendData(btnData.id,btnData.symbol,btnData.name,btnData.image,btnData['current_price'],btnData['price_change_percentage_24h'])
 
+                    const classN = 'fa-solid fa-gem myBtn add'
+
+                    console.log('When entered',btn.dataset.clicked)
+                    btn.className=classN
+
+                    if(btn.dataset.clicked==='unclicked'){
+                        console.log('The btn',btn.className,'The class',classN)
+                        createFave(btnData.name,btnData["current_price"],btnData["price_change_percentage_24h"],btnData.image,btnData.id,btnData.cgid)
+                        btn.dataset.clicked='clicked'
+                    }
+
+                    const deleteB = document.querySelectorAll('.delete')
+                    console.log(deleteB)
+                    deleteB.forEach((theId)=>{
+                        theId.addEventListener('click', (e)=>{
+                          console.log('The id',theId)
+                          toFavTable(theId.id)
+                        })
+                      })
                 } 
             })
-            // const thisBtn = document.querySelectorAll('.delete')
-            // thisBtn.forEach((dlt)=>{
-            //     dlt.className==='delete'?dlt.className = ('fa-solid fa-gem'):dlt.className = ('fa-regular fa-gem')
-            // })
         })
     })
     //LINK BUTTON END
-
-    //CLICK BUTTON AND BECOMES SOLID START
-
-    // btnBody.forEach(btn => {
-    //     btn.addEventListener('click', e => {
-    //         btn.className = "fa-solid fa-gem"
-    //     })
-    // })
-    //CLICK BUTTON AND BECOMES SOLID END
 
     //Link table to Chart START//
     const tableBody = document.querySelectorAll('.coin')

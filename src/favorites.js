@@ -1,7 +1,6 @@
+const baseUrl="http://localhost:3000/favorites"
 
-
-
-const createFave = (cname,cprice,cpchange,cimage,cid, cgid) => {
+const createFave = (cname,cprice,cpchange,cimage,cid,cgid) => {
     const favoriteTable = document.querySelector('#favrows')
     let theRow = document.createElement('tr')
     let theName = document.createElement('td')
@@ -12,19 +11,28 @@ const createFave = (cname,cprice,cpchange,cimage,cid, cgid) => {
     let th = document.createElement('th')
     let theLogo = document.createElement('th')
 
+    console.log(cgid)
 
     button.id=cid
+    button.dataset.id=cgid
     button.className=('fa-solid fa-gem myBtn delete')
 
+    console.log(button.dataset.id)
+    
     let addbtn = document.querySelectorAll('.add')
     addbtn.forEach((spec)=>{
-      if (spec.id===cgid){
-        spec.className='fa-solid fa-gem changed'
+      if (spec.id===cid){
+        button.addEventListener('click', (e)=>{
+          spec.className='fa-regular fa-gem myBtn add'
+          spec.dataset.clicked='unclicked' 
+          theRow.innerHTML=''
+          console.log(cid)
+          console.log(deleteB)
+        })
       }
     })
-    console.log('THIS IS THE ADD', addbtn)
 
-    
+    theRow.id = cid
     th.scope='row'
     th.id='myBtnCol'
     th.appendChild(button)
@@ -36,12 +44,10 @@ const createFave = (cname,cprice,cpchange,cimage,cid, cgid) => {
     theLogo.id='logoFav'
     theLogo.append(img)
 
-    theRow.id = cgid
     theRow.className='coinFav'
     theName.textContent =cname
     theName.className='favName'
 
-    
     let usdcprice = new Intl.NumberFormat('en-US', {
       style:'currency', 
       currency:'USD',
@@ -61,12 +67,11 @@ const createFave = (cname,cprice,cpchange,cimage,cid, cgid) => {
     const header = document.createElement('h3')
     favCoin.forEach(row => {
       row.addEventListener('click', e => {
-        let favURL = `https://api.coingecko.com/api/v3/coins/${row.id}/market_chart?vs_currency=usd&days=0.041&interval=1m`
+        let favURL = `https://api.coingecko.com/api/v3/coins/${cid}/market_chart?vs_currency=usd&days=0.041&interval=1m`
         recreateChart()
-        fetchData(favURL)
-        hourData(row.id)
-        dayData(row.id)
-        
+        fetchData(favURL).then(console.log(fetchData(favURL)))
+        hourData(cid)
+        dayData(cid)      
         favLogo.src = row.querySelector('.coinlogo').src
         favLogo.className = 'fav'
         header.textContent = row.querySelector('.favName').textContent
@@ -82,10 +87,8 @@ const createFave = (cname,cprice,cpchange,cimage,cid, cgid) => {
 // getData().then(createFave('name','hello', 'there'))
 
 
-
-const baseUrl="http://localhost:3000/favorites"
-
 async function deleteFav(theid){
+
   try{
     const r = await fetch(baseUrl +`/${theid}`,{
      method:'Delete',
@@ -99,34 +102,22 @@ async function deleteFav(theid){
    }
  }
 
+ async function toFavTable(cgid){
 
-
-async function toFavTable(){
-
-    try {
-    let req = await fetch(baseUrl)
-    const res =  await req.json()
-    const data = res.map((value)=>{
-        createFave(value.name,value["current_price"],value["price_change_percentage_24h"],value.image,value.id,value.cgid)
-    })
-    } catch(error)
-    {
-        console.log(error)
+  try {
+  let req = await fetch(baseUrl)
+  const res =  await req.json()
+  const data = res.map((value)=>{
+    if (cgid===value.cgid){
+      deleteFav(value.id)
     }
-}
-
-
-toFavTable().then(() => {
-  const deleteB = document.querySelectorAll('.delete')
-  console.log(deleteB)
-  deleteB.forEach((theId)=>{
-    theId.addEventListener('click', (e)=>{
-      //console.log(theId)
-      deleteFav(theId.id)
-    })
   })
+
+  } catch(error)
+  {
+      console.log(error)
+  }
 }
-)
 
 async function sendData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPriceChange){
 
@@ -138,18 +129,6 @@ async function sendData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPr
         })
         
         filterData.includes(coinId) || postData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPriceChange)
-        // if (!filterData.includes(coinId)){
-        //     postData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPriceChange)
-
-        // }
-        // addBtn.forEach(add => {
-        //   console.log(add)
-        //   add.addEventListener('click', e => {
-        //     if (add.id in filterData === true) {
-        //       add.className = ('fa-regular fa-gem myBtn add')
-        //     } 
-        //   })
-        // })
 
         } catch(error)
         {
@@ -191,5 +170,6 @@ async function sendData(coinId,coinSymbol,coinName,coinImage,coinPriceNow,coinPr
         // catches errors both in fetch and response.json
         console.log('Did you forget to add a -->/ in url or check your headers',err);
       }
-}
+      
 
+    }
